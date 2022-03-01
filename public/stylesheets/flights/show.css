@@ -37,20 +37,21 @@ section div:nth-child(even) {
   font-weight: bold;
 }
 
-#add-review-form {
+#reserve-ticket-form {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 1.6rem;
-  margin-bottom: 2rem
+  margin-bottom: 2rem;
+  text-align: right;
 }
 
-#add-review-form > textarea {
+#reserve-ticket-form > input {
   width: 25rem;
 }
 
-#add-review-form > button {
+#reserve-ticket-form > button {
   font-size: 1.6rem;
-  width: 16rem;
+  width: 25rem;
   grid-column: 2 / 3;
   margin-bottom: 2.4rem;
 }
