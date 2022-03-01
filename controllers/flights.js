@@ -2,7 +2,7 @@ import { Flight } from '../models/flight.js'
 
 function newFlight(req, res) {
   res.render('flights/new', {
-    title: 'Add Flight'
+    title: 'Add Flight',
   })
 }
 
@@ -15,10 +15,9 @@ function create(req, res) {
 
   const flight = new Flight(req.body)
   
-  flight.save(function(err) {
-    console.log(req.body)
+  flight.save(function(error) {
     // console.log(req.body)
-    if (err) return res.redirect('/flights/new')
+    if (error) return res.redirect('/flights/new')
     res.redirect('/flights')
   })
 }
@@ -27,7 +26,17 @@ function index(req, res){
   Flight.find({}, (error, flights) => {
     res.render('flights/index', {
       flights: flights,
-      title: 'All Flights'
+      title: 'All Flights',
+    })
+  })
+}
+
+function show(req, res){
+  Flight.findById(req.params.id, (error, flight) => {
+    res.render('flights/show', {
+      flight: flight,
+      error: error,
+      title: "Flight Details",
     })
   })
 }
@@ -36,4 +45,5 @@ export {
   newFlight as new,
   create,
   index,
+  show,
 }
