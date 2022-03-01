@@ -20,7 +20,7 @@ const flightsSchema = new Schema({
   },
   departs: {
     type: Date,
-    default: (new Date() + 1)
+    default: Date.now() + 365*24*60*60000,
   }
 }, {
   timestamps: true
