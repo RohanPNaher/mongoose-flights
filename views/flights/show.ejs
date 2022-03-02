@@ -13,7 +13,23 @@
     <div><%= flight.airport %></div>
     <div>Departure Date: </div>
     <div><%= flight.departs %></div>
+    <div>Meals Available:</div>
+    <ul>
+      <% flight.menu.forEach(mealOption => { %>
+        <li><%= mealOption.name %></li>
+      <% }) %>
+    </ul>
   </section>
+
+  <form id="add-meals-to-flight" action="/flights/<%= flight._id %>/meals" method="POST">
+    <select name="mealId">
+      <% meals.forEach(meal => { %>
+        <option value="<%= meal._id %>"><%= meal.name %></option>
+      <% }) %>
+    </select>
+    <button type="submit">Add meal</button>
+  </form>
+
   <h2>Reserved Tickets</h2>
   <form id="reserve-ticket-form" action="/flights/<%= flight._id %>/tickets" method="POST">
     <label for="seat-input">Please select an unreserved seat from A1 to F99:</label>
