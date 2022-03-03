@@ -17,7 +17,7 @@
           <tr>
             <td><%= flight.airline %></td>
             <td><%= flight.flightNo %></td>
-            <td><a href="/flights/<%= flight._id %>">Additional Details</a></td>
+            <td><a href="/flights/<%= flight._id %>" id="details">Additional Details</a></td>
             <td>
               <form action="/flights/<%= flight._id %>?_method=DELETE" method="POST">
                 <button>Cancel Flight? <i class="fas fa-plane-arrival"></i></button>
