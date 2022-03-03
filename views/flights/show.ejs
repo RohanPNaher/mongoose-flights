@@ -3,65 +3,66 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1><%= title %></h1>
-  <section>
-    <div>Airline: </div>
-    <div><%= flight.airline %></div>
-    <div>Flight Number: </div>
-    <div><%= flight.flightNo %></div>
-    <div>Airport: </div>
-    <div><%= flight.airport %></div>
-    <div>Departure Date: </div>
-    <div><%= flight.departs %></div>
-    <div>Meals Available:</div>
-    <ul>
-      <% flight.menu.forEach(mealOption => { %>
-        <li><%= mealOption.name %></li>
-      <% }) %>
-    </ul>
-  </section>
-
-  <form id="add-meals-to-flight" action="/flights/<%= flight._id %>/meals" method="POST">
-    <select name="mealId">
-      <% meals.forEach(meal => { %>
-        <option value="<%= meal._id %>"><%= meal.name %></option>
-      <% }) %>
-    </select>
-    <button type="submit">Add meal</button>
-  </form>
-
-  <h2>Reserved Tickets</h2>
-  <form id="reserve-ticket-form" action="/flights/<%= flight._id %>/tickets" method="POST">
-    <label for="seat-input">Please select an unreserved seat from A1 to F99:</label>
-    <input type="text" name="seat" id="seat-input" required pattern="[A-F][1-9]\d?"></input>
-    <label for="price-input">Price:</label>
-    <input type="number" name="price" id="price-input">
-    <button type="submit">Reserve Ticket <i class="fas fa-suitcase-rolling"></i></button>
-  </form>
-
-  <% if (flight.tickets.length) { %>
-    <table>
-      <thead>
-        <tr>
-          <th>Date Reserved</th>
-          <th>Seat</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% flight.tickets.forEach(function(ticket) { %>
-          <tr>
-            <td><%= ticket.createdAt.toLocaleDateString() %></td>
-            <td><%= ticket.seat %></td>
-            <td>$<%= ticket.price %></td>
-          </tr>
+  <div class="container">
+    <h1><%= title %></h1>
+    <section>
+      <div>Airline: </div>
+      <div><%= flight.airline %></div>
+      <div>Flight Number: </div>
+      <div><%= flight.flightNo %></div>
+      <div>Airport: </div>
+      <div><%= flight.airport %></div>
+      <div>Departure Date: </div>
+      <div><%= flight.departs %></div>
+      <div>Meals Available:</div>
+      <ul>
+        <% flight.menu.forEach(mealOption => { %>
+          <li><%= mealOption.name %></li>
         <% }) %>
-      </tbody>
-    </table>
-  <% } else { %>
-    <h3>No Resereved Tickets Yet</h3>
-  <% } %>
-
+      </ul>
+    </section>
+  
+    <form id="add-meals-to-flight" action="/flights/<%= flight._id %>/meals" method="POST">
+      <select name="mealId">
+        <% meals.forEach(meal => { %>
+          <option value="<%= meal._id %>"><%= meal.name %></option>
+        <% }) %>
+      </select>
+      <button type="submit">Add meal</button>
+    </form>
+  
+    <h2>Reserved Tickets</h2>
+    <form id="reserve-ticket-form" action="/flights/<%= flight._id %>/tickets" method="POST">
+      <label for="seat-input">Please select an unreserved seat from A1 to F99:</label>
+      <input type="text" name="seat" id="seat-input" required pattern="[A-F][1-9]\d?"></input>
+      <label for="price-input">Price:</label>
+      <input type="number" name="price" id="price-input">
+      <button type="submit">Reserve Ticket <i class="fas fa-suitcase-rolling"></i></button>
+    </form>
+  
+    <% if (flight.tickets.length) { %>
+      <table>
+        <thead>
+          <tr>
+            <th>Date Reserved</th>
+            <th>Seat</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% flight.tickets.forEach(function(ticket) { %>
+            <tr>
+              <td><%= ticket.createdAt.toLocaleDateString() %></td>
+              <td><%= ticket.seat %></td>
+              <td>$<%= ticket.price %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <h3>No Resereved Tickets Yet</h3>
+    <% } %>
+  </div>
 </main>
 
   <%- include("../partials/footer") %>

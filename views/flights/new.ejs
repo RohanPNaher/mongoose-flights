@@ -3,32 +3,34 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1><%= title %></h1>
-  <form action="/flights" method="POST">
-    <label>Airline:
-      <select name="airline">
-        <option value="American">American</option>
-        <option value="Southwest">Southwest</option>
-        <option value="United">United</option>
-      </select>
-    </label><br>
-    <label>Airport:
-      <select name="airport">
-        <option value="AUS">AUS</option>
-        <option value="DFW">DFW</option>
-        <option value="DEN" selected>DEN</option>
-        <option value="LAX">LAX</option>
-        <option value="SAN">SAN</option>
-      </select>
-    </label><br>
-    <label>Flight Number (Values between 10 and 9999 accepted):
-      <input type="number" name="flightNo">
-    </label><br>
-    <label>Departure date:
-      <input type="datetime-local" name="departs">
-    </label><br>
-    <button type="submit">Add Flight <i class="fas fa-plane-departure"></i></button>
-  </form>
+  <div class="container">
+    <h1><%= title %></h1>
+    <form action="/flights" method="POST">
+      <label>Airline:
+        <select name="airline">
+          <option value="American">American</option>
+          <option value="Southwest">Southwest</option>
+          <option value="United">United</option>
+        </select>
+      </label><br>
+      <label>Airport:
+        <select name="airport">
+          <option value="AUS">AUS</option>
+          <option value="DFW">DFW</option>
+          <option value="DEN" selected>DEN</option>
+          <option value="LAX">LAX</option>
+          <option value="SAN">SAN</option>
+        </select>
+      </label><br>
+      <label>Flight Number (Values between 10 and 9999 accepted):
+        <input type="number" name="flightNo">
+      </label><br>
+      <label>Departure date:
+        <input type="datetime-local" name="departs">
+      </label><br>
+      <button type="submit">Add Flight <i class="fas fa-plane-departure"></i></button>
+    </form>
+  </div>
 </main>
 
 <%- include("../partials/footer") %>

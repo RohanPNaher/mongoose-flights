@@ -3,29 +3,31 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1><%= title %></h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Airline</th>
-        <th>Flight Number</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% flights.forEach(flight => { %>
+  <div class="container">
+    <h1><%= title %></h1>
+    <table>
+      <thead>
         <tr>
-          <td><%= flight.airline %></td>
-          <td><%= flight.flightNo %></td>
-          <td><a href="/flights/<%= flight._id %>">Additional Details</a></td>
-          <td>
-            <form action="/flights/<%= flight._id %>?_method=DELETE" method="POST">
-              <button>Cancel Flight? <i class="fas fa-plane-arrival"></i></button>
-            </form>
-          </td>
+          <th>Airline</th>
+          <th>Flight Number</th>
         </tr>
-      <% }) %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% flights.forEach(flight => { %>
+          <tr>
+            <td><%= flight.airline %></td>
+            <td><%= flight.flightNo %></td>
+            <td><a href="/flights/<%= flight._id %>">Additional Details</a></td>
+            <td>
+              <form action="/flights/<%= flight._id %>?_method=DELETE" method="POST">
+                <button>Cancel Flight? <i class="fas fa-plane-arrival"></i></button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
 </main>
 
   <%- include("../partials/footer") %>
