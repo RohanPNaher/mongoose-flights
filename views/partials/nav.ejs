@@ -1,12 +1,31 @@
 </head>
 <body>
   <nav>
-		<i class="fas fa-paper-plane fa-2x"></i>
-    <a href="/meals/new"<%- title === 'Add Meal' ? 'class="active"' : '' %>>ADD MEAL</a>
+		<i class="<%- title === 'Flight Detail' ? 'active fas fa-plane fa-2x' : 'fas fa-paper-plane fa-2x' %>"></i>
+    <a href="/meals/new"<%- title === 'Add Meal' ? 'class="active"' : '' %>>
+      <% if (title === 'Add Meal') { %>
+        <i class="fas fa-utensils"></i>
+      <% } else { %>
+        ADD MEAL
+      <% } %>
+    </a>
     <a 
       href="/flights/new" <%- title === 'Add Flight' ? 'class="active"' : '' %>
-    >ADD FLIGHT</a>
+    >
+    <% if (title === 'Add Flight') { %>
+      <i class="fas fa-plane-departure"></i>
+    <% } else { %>
+      ADD FLIGHT
+    <% } %>
+    </a>
     <a 
       href="/flights" <%- title === 'All Flights' ? 'class="active"' : '' %>
-    >ALL FLIGHTS</a>
+    >
+    <% if (title === 'All Flights') { %>
+      <i class="fas fa-cart-flatbed-suitcase"></i>
+    <% } else { %>
+      ALL FLIGHTS
+    <% } %>
+    </a>
   </nav>
+

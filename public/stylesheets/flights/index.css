@@ -33,3 +33,10 @@ table td {
 #list a:hover {
   background-color: white;
 }
+
+form > button {
+  font-size: 1.6rem;
+  width: 16rem;
+  padding: 5px;
+  border-radius: 5px;
+}

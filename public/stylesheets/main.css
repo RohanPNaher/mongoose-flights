@@ -63,7 +63,9 @@ nav > i {
 
 nav > a {
   margin: 20px;
+  width: 120px;
   text-decoration: none;
+  text-align: center;
   padding: 10px;
   border-radius: 5px;
   color: #424748;
@@ -79,6 +81,10 @@ nav > a:hover {
 }
 
 nav > a.active {
+  color: white;
+}
+
+nav > i.active {
   color: white;
 }
 

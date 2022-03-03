@@ -9,12 +9,19 @@
     <input type="text" name="name" id="name-input">
     <button type="submit">Add Meal</button>
   </form>
-  <p>Available Meals
-    <select>
+  <p class="available">Available Meals
+    <section>
       <% meals.forEach(meal => { %>
         <option><%= meal.name %></option>
       <% }) %>
-    </select>
+    </section>
+
+    <!-- I was not sure if you wanted a drop down menu or just a list so here is the code for the drop down -->
+    <!-- <select>
+      <% meals.forEach(meal => { %>
+        <option><%= meal.name %></option>
+      <% }) %>
+    </select> -->
   </p>
 </main>
 
